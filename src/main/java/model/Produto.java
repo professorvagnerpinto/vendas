@@ -5,18 +5,20 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	private Double valor;
+	private Integer estoque;
 	private Boolean situacao;
 	
 	public Produto() {
 		super();
 	}
 
-	public Produto(Long id, String nome, String descricao, Double valor, Boolean situacao) {
+	public Produto(Long id, String nome, String descricao, Double valor, Integer estoque, Boolean situacao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.valor = valor;
+		this.estoque = estoque;
 		this.situacao = situacao;
 	}
 
@@ -52,6 +54,14 @@ public class Produto {
 		this.valor = valor;
 	}
 
+	public Integer getEstoque() {
+		return estoque;
+	}
+
+	public void setEstoque(Integer estoque) {
+		this.estoque = estoque;
+	}
+
 	public Boolean getSituacao() {
 		return situacao;
 	}
@@ -62,9 +72,8 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "\nProduto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", valor=" + valor + ", situacao="
-				+ situacao + "]";
+		return "\nProduto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", valor=" + valor + ", estoque="
+				+ estoque + ", situacao=" + situacao + "]";
 	}
-	
 	
 }
