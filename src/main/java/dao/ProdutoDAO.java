@@ -10,7 +10,7 @@ import java.util.List;
 import model.Produto;
 
 public class ProdutoDAO extends BaseDAO{
-	//SELEC * produtos;
+
 	public static List<Produto> selectProdutos() {
 		final String sql = "SELECT * FROM produtos";
 		try //try-witch-resource
