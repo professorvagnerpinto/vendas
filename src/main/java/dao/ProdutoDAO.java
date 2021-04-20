@@ -31,6 +31,48 @@ public class ProdutoDAO extends BaseDAO{
 		}
 	}
 	
+	public static List<Produto> selectProdutosByName(String nome) {
+		final String sql = "SELECT * FROM produtos WHERE nome LIKE ? ORDER BY nome";
+		try //try-witch-resource
+			(
+				Connection conn = getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+			)
+		{
+			pstmt.setString(1, nome.toLowerCase() + "%");	
+			ResultSet rs = pstmt.executeQuery();
+			List<Produto> produtos = new ArrayList<>();
+			while(rs.next()) {
+				produtos.add(resultsetToProduto(rs));
+			}
+			return produtos;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static List<Produto> selectProdutosBySituacao(boolean situacao) {
+		final String sql = "SELECT * FROM produtos WHERE situacao=?";
+		try //try-witch-resource
+			(
+				Connection conn = getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+			)
+		{
+			pstmt.setBoolean(1, situacao);	
+			ResultSet rs = pstmt.executeQuery();
+			List<Produto> produtos = new ArrayList<>();
+			while(rs.next()) {
+				produtos.add(resultsetToProduto(rs));
+			}
+			return produtos;
+		} catch(SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public static Produto selectProdutoById(Long id) {
 		final String sql = "SELECT * FROM produtos WHERE id=?";
 		try
@@ -69,7 +111,7 @@ public class ProdutoDAO extends BaseDAO{
       
     
     public static void main(String[] args) {
-		System.out.println(selectProdutoById(1L));
+		System.out.println(selectProdutosByName("c"));
 	}
 
 }//fim classe
