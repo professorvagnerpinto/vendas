@@ -13,10 +13,11 @@ public class HomeController {
 			System.out.print(		
 				"\n1. Vender" +
 				"\n2. Manter Produtos" +
-				"\n3. Manter Clietnes" +
+				"\n3. Manter Clientes" +
 				"\n4. Listar pedidos por cliente" +
 				"\nOpção (Zero p/sair): ");
 			opcao = input.nextInt();
+			input.nextLine();
 			switch(opcao) {
 				case 1:
 					System.out.println("Em implementação.");
@@ -25,7 +26,7 @@ public class HomeController {
                     ProdutoController.main(null);
 					break;
 				case 3:
-					System.out.println("Em implementação.");
+					ClienteController.main(null);
 					break;
 				case 4:
 					System.out.println("Em implementação.");
@@ -34,7 +35,8 @@ public class HomeController {
 					if(opcao != 0) System.out.println("Opção inválida.");
 			}
 		} while(opcao != 0) ;
-		System.out.println("Fim da aplicação");
+		System.out.println("\n\n!!!!!!!! Fim da aplicação !!!!!!!!");
+		input.close(); //libera o recurso
 	}
 
 }//fim classe
