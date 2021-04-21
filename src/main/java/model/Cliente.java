@@ -22,6 +22,14 @@ public class Cliente {
 		this.situacao = situacao;
 		this.pedidos = pedidos;
 	}
+	
+	public Cliente(Long id, String nome, String sobrenome, Boolean situacao) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.situacao = situacao;
+	}
 
 	public Long getId() {
 		return id;

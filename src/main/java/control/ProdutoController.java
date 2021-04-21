@@ -69,8 +69,7 @@ public class ProdutoController {
         	System.out.println("\nProduto salvo com sucesso.");
         }else {
         	System.out.println("\nHouve um erro ao salvar o produto. Por favor, contate o administrador do sistema.");
-        } 
-        
+        }     
     }
 	
 	//opção 2
