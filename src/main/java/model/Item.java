@@ -19,6 +19,11 @@ public class Item {
 		this.situacao = situacao;
 		this.produto = produto;
 	}
+	
+	public Item(Produto produto) {
+		super();
+		this.produto = produto;
+	}
 
 	public Long getId() {
 		return id;

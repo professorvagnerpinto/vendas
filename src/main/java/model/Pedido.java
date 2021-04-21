@@ -45,6 +45,11 @@ public class Pedido {
 		this.situacao = situacao;
 		this.cliente = cliente;
 	}
+	
+	public Pedido(List<Item> itens) {
+		super();
+		this.itens = itens;
+	}
 
 	public Long getId() {
 		return id;
