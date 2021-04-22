@@ -1,9 +1,7 @@
 package dao;
 
-import model.Cliente;
 import model.Item;
 import model.Pedido;
-import model.Produto;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -100,7 +98,7 @@ public class PedidoDAO extends BaseDAO {
 		//Double totalPedido, Boolean situacao, Cliente cliente, List<Item> itens
 		p.setId(rs.getLong("id"));
 		p.setFormaPagamento(rs.getString("pagamento"));
-		p.setEstado(rs.getString("situacao"));
+		p.setEstado(rs.getString("estado"));
 		p.setDataCriacao(dateToCalendar(rs.getDate("data_criacao")));
 		p.setDataModificacao(dateToCalendar(rs.getDate("data_modificacao")));
 		p.setTotalPedido(rs.getDouble("total_pedido"));

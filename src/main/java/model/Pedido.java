@@ -1,5 +1,7 @@
 package model;
 
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -125,9 +127,24 @@ public class Pedido {
 
 	@Override
 	public String toString() {
-		return "\nPedido [id=" + id + ", formaPagamento=" + formaPagamento + ", estado=" + estado + ", dataCriacao="
-				+ dataCriacao + ", dataModificacao=" + dataModificacao + ", totalPedido=" + totalPedido + ", situacao="
-				+ situacao + ", cliente=" + cliente + ", itens=" + itens + "]";
+		return "\n*******  Pedido Número = " + id + " ******" +
+				"\nForma de Pagamento= " + formaPagamento + 
+				"\nEstado= " + estado + 
+				"\nData da criação= " + calendarToString(dataCriacao) + 
+				"\nData da modificacao= " + calendarToString(dataModificacao) + 
+				"\nTotal do Pedido= " + NumberFormat.getCurrencyInstance().format(totalPedido) + 
+				"\nsituacao= " + situacao + 
+				"\nCliente=" + cliente + 
+				"\nItens=" + itens + "\n";
+	}
+	
+	//métodos utilitários para conversão de Calendar para String formatada
+	private static String calendarToString(Calendar data) {
+		if(data != null) {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+			return sdf.format(data.getTime());
+		}
+		return "00/00/0000";
 	}
 	
 }
