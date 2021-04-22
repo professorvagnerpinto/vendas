@@ -94,8 +94,6 @@ public class PedidoDAO extends BaseDAO {
 	//método utilitário, converte ResultSet na classe de modelo (nesse caso, Produto)
 	private static Pedido resultsetToPedido(ResultSet rs) throws SQLException {
 		Pedido p = new Pedido();
-		//Long id, String formaPagamento, String estado, Calendar dataCriacao, Calendar dataModificacao,
-		//Double totalPedido, Boolean situacao, Cliente cliente, List<Item> itens
 		p.setId(rs.getLong("id"));
 		p.setFormaPagamento(rs.getString("pagamento"));
 		p.setEstado(rs.getString("estado"));
@@ -104,7 +102,7 @@ public class PedidoDAO extends BaseDAO {
 		p.setTotalPedido(rs.getDouble("total_pedido"));
 		p.setSituacao(rs.getBoolean("situacao"));
 		p.setCliente(ClienteDAO.selectClienteById(rs.getLong("id_cliente")));
-		p.setItens(ItemDAO.selectItensByPedido(p.getId())); //implementar na dao de intens
+		p.setItens(ItemDAO.selectItensByPedido(p.getId()));
 
 		return p;
 	}

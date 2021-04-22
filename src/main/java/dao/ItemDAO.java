@@ -34,7 +34,7 @@ public class ItemDAO extends BaseDAO{
 	private static Item resultsetToProduto(ResultSet rs) throws SQLException {
 		Item item = new Item();
 		item.setId(rs.getLong("id"));
-		item.setProduto(ProdutoDAO.selectProdutoById(rs.getLong("id_produto"))); //implementar
+		item.setProduto(ProdutoDAO.selectProdutoById(rs.getLong("id_produto")));
 		item.setQuantidade(rs.getInt("quantidade"));
 		item.setSituacao(rs.getBoolean("situacao"));
 		item.setTotalItem(rs.getDouble("total_item"));
