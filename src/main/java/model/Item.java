@@ -1,5 +1,7 @@
 package model;
 
+import java.text.NumberFormat;
+
 public class Item {
 	private Long id;
 	private Integer quantidade;
@@ -67,7 +69,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "\nItem [id=" + id + ", quantidade=" + quantidade + ", totalItem=" + totalItem + ", situacao=" + situacao
+		return "\nItem [id=" + id + ", quantidade=" + quantidade + ", totalItem=" +  NumberFormat.getCurrencyInstance().format(totalItem) + ", situacao=" + situacao
 				+ ", produto=" + produto + "]";
 	}
 	
