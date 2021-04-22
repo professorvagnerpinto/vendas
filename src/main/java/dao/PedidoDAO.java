@@ -104,7 +104,7 @@ public class PedidoDAO extends BaseDAO {
 		p.setTotalPedido(rs.getDouble("total_pedido"));
 		p.setSituacao(rs.getBoolean("situacao"));
 		p.setCliente(ClienteDAO.selectClienteById(rs.getLong("id_cliente")));
-		p.setItens(null); //implementar na dao de intens
+		p.setItens(ItemDAO.selectItensByPedido(p.getId())); //implementar na dao de intens
 
 		return p;
 	}
